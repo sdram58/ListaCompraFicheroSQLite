@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="almacenamiento">
+        <item>SQLite</item>
+        <item>Ficheros</item>
+    </string-array>
+</resources>

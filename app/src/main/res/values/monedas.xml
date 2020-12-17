@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string-array name="moneda">
+        <item>Euro</item>
+        <item>Dolar</item>
+        <item>Libra</item>
+    </string-array>
+    <string-array name="caracter_moneda">
+        <item>€</item>
+        <item>$</item>
+        <item>£</item>
+    </string-array>
+</resources>

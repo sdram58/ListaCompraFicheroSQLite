@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ListaCompra</string>
+    <string name="lista_compra">Lista de la compra</string>
+    <string name="total_compra">Total de la compra:</string>
+    <string name="cantidad">Cant.</string>
+    <string name="producto">Producto</string>
+    <string name="precio_unitario">€</string>
+    <string name="tipo_moneda">Moneda usada</string>
+    <string name="tipo_almacenamiento">Elige donde guardar</string>
+    <string name="action_settings">Ajustes</string>
+</resources>
