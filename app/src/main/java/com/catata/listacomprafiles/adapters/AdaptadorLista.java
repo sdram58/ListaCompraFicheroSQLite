@@ -76,26 +76,34 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+
         holder.tvCantidad.setText(String.valueOf(productos.get(position).getCantidad()));
         holder.tvNombreProducto.setText(productos.get(position).getNombre());
         holder.tvPrecio_U.setText(""+MyFormater.DoubleToString2Digits(productos.get(position).getPrecio_u())+" "+simbolo_moneda);
         holder.tvPrecioTotal.setText("" + MyFormater.DoubleToString2Digits(productos.get(position).getCantidad()*productos.get(position).getPrecio_u())+ " " + simbolo_moneda);
 
+        //Botón eliminar
         holder.ibEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                productos.get(position).setCantidad(productos.get(position).getCantidad() - 1);
-                if(productos.get(position).getCantidad()==0){ //Ya no quedan, eliminamos el registro
+                if(productos.get(position).getCantidad()<=1){ //Al quitarle quedarán 0, eliminamos el registro
                     persistencia.deleteProducto(productos.get(position));
                     productos.remove(position);
 
-                }else{
+                }else{ //Si tenía más de 1 lo actualizamos con uno menos
+                    productos.get(position).setCantidad(productos.get(position).getCantidad() - 1);
                     persistencia.updateProducto(productos.get(position));
                 }
 
                 //Notificamos cambios
                 notifyDataSetChanged();
+
+                /*Mostramos el resultado, lo podemos hacer con un callback o si tenemos la
+                * referencia el TextView, lo modificamos directamente
+                */
+
                 //myCallBack.actualizarTotal(updateTotal());
+
                 tvResultado.setText(MyFormater.DoubleToString2Digits(updateTotal()) + " " + simbolo_moneda);
 
 
@@ -116,6 +124,13 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.MyViewHo
     @Override
     public int getItemCount() {
         return productos.size();
+    }
+
+    public void resetDatos(List<Producto> listProducto) {
+        productos.clear();
+        productos = listProducto;
+        tvResultado.setText(MyFormater.DoubleToString2Digits(updateTotal()) + " " + simbolo_moneda);
+        notifyDataSetChanged();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

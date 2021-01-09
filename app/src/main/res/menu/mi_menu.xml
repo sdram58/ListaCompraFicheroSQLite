@@ -7,5 +7,9 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
-
+    <item
+        android:id="@+id/action_sincronizar"
+        android:title="@string/action_sincronizar"
+        android:orderInCategory="50"
+        app:showAsAction="never" />
 </menu>

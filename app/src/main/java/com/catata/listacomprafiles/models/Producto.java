@@ -1,11 +1,14 @@
 package com.catata.listacomprafiles.models;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class Producto {
     String nombre;
     int cantidad;
     double precio_u;
+
+    public Producto(){}
 
     public Producto(String nombre, int cantidad, double precio_u) {
         this.nombre = nombre;
@@ -41,6 +44,11 @@ public class Producto {
     @Override
     public String toString() {
         return this.nombre+";"+this.cantidad+";"+this.precio_u+"\n";
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return (obj instanceof Producto) && ((Producto)obj).getNombre().toUpperCase().compareTo(this.nombre.toUpperCase())==0;
     }
 }
 

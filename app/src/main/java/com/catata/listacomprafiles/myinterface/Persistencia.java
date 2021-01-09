@@ -12,5 +12,4 @@ public  interface Persistencia {
     Producto getProductoByName(String n_producto);
     void updateProducto(Producto p);
     void deleteProducto(Producto p);
-
 }

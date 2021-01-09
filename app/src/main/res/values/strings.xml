@@ -8,4 +8,5 @@
     <string name="tipo_moneda">Moneda usada</string>
     <string name="tipo_almacenamiento">Elige donde guardar</string>
     <string name="action_settings">Ajustes</string>
+    <string name="action_sincronizar">Sincronizar</string>
 </resources>
